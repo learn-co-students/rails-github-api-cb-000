@@ -27,8 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry'
 # Use Faraday for GET and POST
 gem 'faraday'
-# Dot-env
-gem 'dotenv-rails'
 
 #Testing
 group :test do
@@ -48,6 +46,7 @@ end
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
