@@ -12,7 +12,9 @@ class RepositoriesController < ApplicationController
       req.headers['Accept'] = 'application/json'
     end
 
-    @repositories = JSON.parse(repos.body)
+    @repositories = JSON.parse(repos.body).map do |repo|
+      { name: repo['name'], url: repo['html_url']}
+    end
 
   end
 
