@@ -2,8 +2,8 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_user
 
   def create
-    client_id = ENV["CLIENT_ID"]
-    client_secret = ENV["CLIENT_SECRET"]
+    client_id = ENV['GITHUB_CLIENT_ID']
+    client_secret = ENV['GITHUB_CLIENT_SECRET']
     code = params['code']
 
     response = Faraday.post "https://github.com/login/oauth/access_token" do |req|
