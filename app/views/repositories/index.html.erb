@@ -1,4 +1,5 @@
 <div class = "container">
+  <%= @user_data['login'] if @user_data %>
   <h1>Repos</h1>
   <!-- List repositories and display username here! -->
 
@@ -6,5 +7,16 @@
     <%= label_tag(:name, "Create a New Repo:") %>
     <%= text_field_tag(:name, nil, id: "new-repo") %>
     <%= submit_tag("Create") %>
+  <% end %>
+
+  <% if @repos %>
+  <ul>
+    <% @repos.each do |repo| %>
+      <li><%= repo['name'] %></li>
+    <% end %>
+  </ul>
+
+  <% else %>
+    No Repos
   <% end %>
 </div>
