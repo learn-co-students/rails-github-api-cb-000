@@ -2,6 +2,13 @@
   <h1>Repos</h1>
   <!-- List repositories and display username here! -->
 
+  <%= @user["login"] %>
+
+  <% @repos.each do |repo| %>
+    <ul>
+      <li><%= repo["name"] %></li>
+    </ul>
+  <% end %>
   <%= form_tag("/repositories/create", method: "post") do %>
     <%= label_tag(:name, "Create a New Repo:") %>
     <%= text_field_tag(:name, nil, id: "new-repo") %>
