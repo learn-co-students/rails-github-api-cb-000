@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user
-    redirect_to "https://github.com/login/oauth/authorize?ClientID=#{CLIENT_ID}" and return if !logged_in?
+    redirect_to "https://github.com/login/oauth/authorize?client_id=#{CLIENT_ID}" and return if !logged_in?
   end
 
   def logged_in?
