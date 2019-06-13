@@ -8,8 +8,12 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user
+    client_id = "dummy_id"
+
+    redirect_to "https://github.com/login/oauth/authorize?client_id=#{client_id}" and return if !logged_in?
   end
 
   def logged_in?
+    !!session[:token]
   end
 end
